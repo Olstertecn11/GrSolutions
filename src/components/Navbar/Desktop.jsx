@@ -23,24 +23,30 @@ import {
   FaShoppingCart,
 } from 'react-icons/fa';
 import colors from '../../config/colors';
+import routes from '@/router/routes';
+import { useNavigate } from 'react-router-dom';
 
 const menuItems = ['INICIO', 'SERVICIOS', 'NOSOTROS', 'CONTACTO'];
 
-const renderMenuItem = (item) => {
-  const isDropdown = item !== 'CONTACT';
+const renderMenuItem = (item, index) => {
+
+  const history = useNavigate();
+  const isDropdown = item.subs && item.subs.length > 0;
   return isDropdown ? (
-    <Menu key={item}>
-      <MenuButton fontWeight={item === 'HOME' ? 'bold' : 'normal'} _hover={{ color: 'teal.300' }} fontSize={'0.9rem'}>
-        {item} <ChevronDownIcon />
+    <Menu key={index} >
+      <MenuButton fontWeight={item.title === 'Inicio' ? 'bold' : 'normal'} _hover={{ color: 'blue.300' }} fontSize={'0.9rem'}>
+        {item.title} <ChevronDownIcon />
       </MenuButton>
-      <MenuList>
-        <MenuItem>{item} Option 1</MenuItem>
-        <MenuItem>{item} Option 2</MenuItem>
+      <MenuList bg={'blue.800'} border='none' >
+        {item.subs.map((subItem, subIndex) => (
+          <MenuItem onClick={() => history(subItem.path)} key={subIndex} bg='blue.800' _hover={{ backgroundColor: 'blue.600' }}>{subItem.title}</MenuItem>
+        ))
+        }
       </MenuList>
     </Menu>
   ) : (
-    <Text key={item} _hover={{ color: 'teal.300' }} fontSize={'0.9rem'}>
-      {item}
+    <Text key={item} _hover={{ color: 'blue.300', cursor: 'pointer' }} fontSize={'0.9rem'} onClick={() => history(item.path)} fontWeight={item.title === 'Inicio' ? 'bold' : 'normal'}  >
+      {item.title}
     </Text>
   );
 };
@@ -50,10 +56,10 @@ export default function Desktop() {
     <Box bg={colors.navbar} px={6} py={4} color="white">
       <Flex align="center">
         <HStack spacing={4}>
-          {menuItems.map((item, index) => (
-            <Flex key={item} align="center">
-              {renderMenuItem(item)}
-              {index < menuItems.length - 1 && (
+          {routes.map((item, index) => (
+            <Flex key={index} align="center">
+              {renderMenuItem(item, index)}
+              {index < routes.length - 1 && (
                 <Text mx={2} color="gray.400">/</Text>
               )}
             </Flex>
