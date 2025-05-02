@@ -68,22 +68,25 @@ const Mobile = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
-    <Box display={{ base: "flex", md: "none" }} className="navbar-mobile" background={colors.navbar} >
+    <Box display={{ base: "flex", md: "none" }} className="navbar-mobile" background={colors.navbar} height="4rem" >
       <IconButton
         icon={<HamburgerIcon />}
-        mt={'0.4rem'}
+        mt={'0.6rem'}
+        fontSize={'1.6rem'}
         variant="ghost"
         colorScheme="whiteAlpha"
         onClick={onOpen}
         aria-label="Open Menu"
       />
-      <Text fontSize="1xl" color="white" fontWeight="bold" ml={4} mt={3}>
+      <Text fontSize="1.2rem" color="white" fontWeight="bold" ml={4} mt={4}>
         G&R Logistics
       </Text>
 
       <IconButton
         icon={<IoMdNotifications />}
-        mt="0.4rem"
+        mt="0.6rem"
+        mr={4}
+        fontSize={'1.5rem'}
         ml="auto"
         variant="ghost"
         colorScheme="yellow"
