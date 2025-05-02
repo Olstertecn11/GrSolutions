@@ -10,7 +10,6 @@ const RouterManager = () => {
           {routes.map((route, index) => {
             const Layout = route.layout || MainLayout;
             const Component = route.component;
-            console.log('component: ', Component);
             return (
               <Route
                 key={index}

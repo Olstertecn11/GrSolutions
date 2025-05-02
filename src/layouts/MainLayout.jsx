@@ -3,7 +3,6 @@ import Footer from "@/components/Footer";
 
 
 const MainLayout = ({ children }) => {
-  console.log('MainLayout');
 
   return (
     <div className="layout">
