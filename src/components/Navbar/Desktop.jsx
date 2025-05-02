@@ -30,7 +30,7 @@ const renderMenuItem = (item) => {
   const isDropdown = item !== 'CONTACT';
   return isDropdown ? (
     <Menu key={item}>
-      <MenuButton fontWeight={item === 'HOME' ? 'bold' : 'normal'} _hover={{ color: 'teal.300' }}>
+      <MenuButton fontWeight={item === 'HOME' ? 'bold' : 'normal'} _hover={{ color: 'teal.300' }} fontSize={'0.9rem'}>
         {item} <ChevronDownIcon />
       </MenuButton>
       <MenuList>
@@ -39,7 +39,7 @@ const renderMenuItem = (item) => {
       </MenuList>
     </Menu>
   ) : (
-    <Text key={item} _hover={{ color: 'teal.300' }}>
+    <Text key={item} _hover={{ color: 'teal.300' }} fontSize={'0.9rem'}>
       {item}
     </Text>
   );
