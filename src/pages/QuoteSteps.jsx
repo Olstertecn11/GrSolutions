@@ -3,6 +3,7 @@ import {
   Button,
   FormControl,
   FormLabel,
+  Divider,
   Input,
   Select,
   Step,
@@ -17,8 +18,12 @@ import {
   VStack,
   Textarea,
   Flex,
+  Heading,
+  Text,
+  Stack,
 } from '@chakra-ui/react';
 import { useState } from 'react';
+import { IoMdArrowRoundBack } from "react-icons/io";
 
 const steps = [
   { title: 'Cliente', description: 'Tus datos' },
@@ -30,8 +35,28 @@ const steps = [
 const QuouteSteps = () => {
   const { activeStep, setActiveStep } = useSteps({ initialStep: 0 });
 
+  const [formData, setFormData] = useState({
+    nombre: '',
+    email: '',
+    telefono: '',
+    servicio: '',
+    fecha: '',
+    hora: '',
+    origen: '',
+    destino: '',
+  });
+
+  const handleChange = (field) => (e) => {
+    setFormData({ ...formData, [field]: e.target.value });
+  };
+
   const nextStep = () => setActiveStep((s) => s + 1);
   const prevStep = () => setActiveStep((s) => s - 1);
+
+  const handleSubmit = () => {
+    // Aquí puedes enviar los datos al backend o servicio de correo
+    alert('Cotización enviada correctamente ✅');
+  };
 
   return (
     <Box maxW="4xl" mx="auto" py={10}>
@@ -55,15 +80,15 @@ const QuouteSteps = () => {
           <VStack spacing={4} align="stretch">
             <FormControl isRequired>
               <FormLabel>Nombre completo</FormLabel>
-              <Input placeholder="Ej. Juan Pérez" />
+              <Input value={formData.nombre} onChange={handleChange('nombre')} placeholder="Ej. Juan Pérez" />
             </FormControl>
             <FormControl isRequired>
               <FormLabel>Correo electrónico</FormLabel>
-              <Input type="email" placeholder="correo@ejemplo.com" />
+              <Input type="email" value={formData.email} onChange={handleChange('email')} placeholder="correo@ejemplo.com" />
             </FormControl>
             <FormControl isRequired>
               <FormLabel>Teléfono</FormLabel>
-              <Input type="tel" placeholder="Ej. 5555-5555" />
+              <Input type="tel" value={formData.telefono} onChange={handleChange('telefono')} placeholder="Ej. 5555-5555" />
             </FormControl>
           </VStack>
         )}
@@ -72,7 +97,7 @@ const QuouteSteps = () => {
           <VStack spacing={4} align="stretch">
             <FormControl isRequired>
               <FormLabel>Tipo de servicio</FormLabel>
-              <Select placeholder="Selecciona una opción">
+              <Select value={formData.servicio} onChange={handleChange('servicio')} placeholder="Selecciona una opción">
                 <option value="mudanza">Mudanza</option>
                 <option value="flete">Flete</option>
                 <option value="transporte">Transporte de carga</option>
@@ -80,11 +105,11 @@ const QuouteSteps = () => {
             </FormControl>
             <FormControl>
               <FormLabel>Fecha del servicio</FormLabel>
-              <Input type="date" />
+              <Input type="date" value={formData.fecha} onChange={handleChange('fecha')} />
             </FormControl>
             <FormControl>
               <FormLabel>Hora estimada</FormLabel>
-              <Input type="time" />
+              <Input type="time" value={formData.hora} onChange={handleChange('hora')} />
             </FormControl>
           </VStack>
         )}
@@ -93,31 +118,49 @@ const QuouteSteps = () => {
           <VStack spacing={4} align="stretch">
             <FormControl isRequired>
               <FormLabel>Dirección de origen</FormLabel>
-              <Textarea placeholder="Ej. Zona 10, Ciudad de Guatemala" />
+              <Textarea value={formData.origen} onChange={handleChange('origen')} placeholder="Ej. Zona 10, Ciudad de Guatemala" />
             </FormControl>
             <FormControl isRequired>
               <FormLabel>Dirección de destino</FormLabel>
-              <Textarea placeholder="Ej. Carretera a El Salvador, KM 12" />
+              <Textarea value={formData.destino} onChange={handleChange('destino')} placeholder="Ej. Carretera a El Salvador, KM 12" />
             </FormControl>
           </VStack>
         )}
 
         {activeStep === 3 && (
-          <Box textAlign="center">
-            <Text mb={4}>¿Estás listo para enviar tu solicitud?</Text>
-            <Button colorScheme="green">Enviar Cotización</Button>
+          <Box>
+            <Heading size="md" mb={4}>Resumen de la cotización</Heading>
+            <Divider mb={4} />
+            <Stack spacing={3}>
+              <Text><b>Nombre:</b> {formData.nombre}</Text>
+              <Text><b>Email:</b> {formData.email}</Text>
+              <Text><b>Teléfono:</b> {formData.telefono}</Text>
+              <Text><b>Servicio:</b> {formData.servicio}</Text>
+              <Text><b>Fecha:</b> {formData.fecha}</Text>
+              <Text><b>Hora:</b> {formData.hora}</Text>
+              <Text><b>Origen:</b> {formData.origen}</Text>
+              <Text><b>Destino:</b> {formData.destino}</Text>
+            </Stack>
+
           </Box>
         )}
 
-        <Flex justify="space-between" mt={8}>
+        <Flex justify="space-between" mt={8} >
           <Button onClick={prevStep} isDisabled={activeStep === 0}>
-            Atrás
+            {
+              activeStep === steps.length - 1 ? <IoMdArrowRoundBack style={{ marginLeft: '5px' }} fontSize={20} /> : 'Atras'
+            }
           </Button>
-          {activeStep < steps.length - 1 ? (
+          {activeStep < steps.length - 1 && (
             <Button onClick={nextStep} colorScheme="blue">
               Siguiente
             </Button>
-          ) : null}
+          )}
+          {activeStep === steps.length - 1 && (
+            <Button onClick={handleSubmit} colorScheme="green" width="full" ml={2}>
+              Enviar Cotización
+            </Button>
+          )}
         </Flex>
       </Box>
     </Box>
