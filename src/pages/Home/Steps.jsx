@@ -1,104 +1,115 @@
 import {
   Box,
+  Flex,
   Heading,
   Text,
-  VStack,
-  SimpleGrid,
   Icon,
-  Flex,
+  Button,
+  SimpleGrid,
+  useBreakpointValue,
 } from "@chakra-ui/react";
 import { FaClipboardList, FaUserCheck, FaCalendarCheck, FaThumbsUp } from "react-icons/fa";
+import { useState } from "react";
 
 const steps = [
   {
-    icon: FaClipboardList,
     title: "Paso #1",
     subtitle: "Completa tu formulario",
     description:
-      "Llena el formulario con tus necesidades y requerimientos. Una vez recibido, nuestro equipo gestionará la cotización con nuestros proveedores, asegurándote las mejores opciones en calidad, seguridad y precio.",
-    color: "#F6AD55", // naranja
+      "Llena el formulario con tus necesidades y requerimientos. Nuestro equipo gestionará la cotización con nuestros proveedores para asegurarte las mejores opciones.",
+    icon: FaClipboardList,
+    color: "orange",
   },
   {
-    icon: FaUserCheck,
     title: "Paso #2",
     subtitle: "Escoge a tu proveedor",
     description:
-      "Recibirás varias cotizaciones detalladas de proveedores confiables. Cada opción incluirá información clave para que puedas comparar y seleccionar la que mejor se ajuste a tus necesidades.",
-    color: "#68D391", // verde
+      "Recibirás varias cotizaciones detalladas para comparar y seleccionar la que mejor se ajuste a tus necesidades.",
+    icon: FaUserCheck,
+    color: "green",
   },
   {
-    icon: FaCalendarCheck,
     title: "Paso #3",
     subtitle: "Confirma y realiza tu pago",
     description:
-      "Después de elegir al proveedor ideal, te enviaremos un enlace seguro para que completes el pago del servicio. Este paso asegura la confirmación de tu solicitud y permite avanzar en la coordinación.",
-    color: "#63B3ED", // azul
+      "Te enviaremos un enlace seguro para completar el pago y confirmar tu solicitud. Así avanzamos en la coordinación.",
+    icon: FaCalendarCheck,
+    color: "blue",
   },
   {
-    icon: FaThumbsUp,
     title: "Paso #4",
     subtitle: "Coordina y recibe el servicio",
     description:
-      "Te compartiremos los datos de contacto del proveedor seleccionado para que puedas ultimar detalles directamente con ellos. Así garantizarás que todo se lleve a cabo de acuerdo con tus expectativas.",
-    color: "#F687B3", // rosa
+      "Te compartiremos los datos del proveedor para que coordines la entrega según tus necesidades.",
+    icon: FaThumbsUp,
+    color: "pink",
   },
 ];
 
 const Steps = () => {
+  const [activeStep, setActiveStep] = useState(0);
+  const isMobile = useBreakpointValue({ base: true, md: false });
+
   return (
-    <Box bg="gray.50" py={20} px={6}>
-      <Heading textAlign="center" fontSize={{ base: "2xl", md: "4xl" }} mb={14}>
+    <Box py={16} px={4} bg="gray.50">
+      <Heading textAlign="center" fontSize="3xl" mb={10}>
         Fácil, seguro y a tu medida
       </Heading>
 
-      <SimpleGrid columns={{ base: 1, md: 2, lg: 4 }} spacing={10} maxW="7xl" mx="auto">
-        {steps.map((step, i) => (
+      <SimpleGrid columns={{ base: 1, md: 4 }} spacing={6} maxW="7xl" mx="auto">
+        {steps.map((step, index) => (
           <Box
-            key={i}
-            borderRadius="xl"
-            overflow="hidden"
-            boxShadow="md"
+            key={index}
             bg="white"
-            transition="all 0.3s"
-            _hover={{ boxShadow: "xl", transform: "translateY(-4px)" }}
+            borderRadius="xl"
+            shadow={activeStep === index ? "xl" : "md"}
+            p={6}
+            borderTop="8px solid"
+            borderColor={`${step.color}.400`}
+            transition="all 0.3s ease"
+            cursor="pointer"
+            onClick={() => setActiveStep(index)}
+            _hover={{
+              transform: "translateY(-4px)",
+              shadow: "xl",
+            }}
           >
-            <Box
-              h="120px"
-              bgGradient={`linear(to-b, ${step.color}, transparent)`}
-              position="relative"
-              display="flex"
-              justifyContent="center"
-              alignItems="center"
-              pb={6}
-              borderTopRadius="xl"
+            <Flex
+              justify="center"
+              align="center"
+              bg={`${step.color}.100`}
+              w={12}
+              h={12}
+              borderRadius="full"
+              mb={4}
+              mx="auto"
             >
-              <Icon as={step.icon} boxSize={10} color="white" zIndex="1" />
-              <Box
-                position="absolute"
-                bottom="-1"
-                left="0"
-                width="full"
-                height="30px"
-                bg="white"
-                borderTopRadius="full"
-                zIndex="0"
-              />
-            </Box>
+              <Icon as={step.icon} boxSize={6} color={`${step.color}.500`} />
+            </Flex>
 
-            <VStack spacing={2} p={6} align="start">
-              <Text fontWeight="bold" fontSize="lg">
-                {step.title}
-              </Text>
-              <Text fontWeight="semibold" fontSize="md" color="gray.700">
-                {step.subtitle}
-              </Text>
-              <Text fontSize="sm" color="gray.600">
-                {step.description}
-              </Text>
-            </VStack>
+            <Text fontWeight="bold" fontSize="md" mb={1}>
+              {step.title}
+            </Text>
+            <Text fontWeight="semibold" fontSize="sm" color="gray.700">
+              {step.subtitle}
+            </Text>
+            <Text fontSize="sm" color="gray.600" mt={2}>
+              {step.description}
+            </Text>
           </Box>
         ))}
       </SimpleGrid>
+
+      <Flex mt={10} justify="center">
+        <Button
+          colorScheme="blue"
+          px={8}
+          className="btn-move-animation"
+          onClick={() => window.location.href = '/Cotizacion'} // o tu ruta real
+        >
+          Llenar Formulario
+        </Button>
+      </Flex>
     </Box>
   );
 };
