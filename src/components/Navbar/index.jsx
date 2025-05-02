@@ -1,4 +1,5 @@
 import Desktop from "@/components/Navbar/Desktop";
+import Mobile from "@/components/Navbar/Mobile";
 import { useState, useEffect } from "react";
 
 export const Navbar = () => {
