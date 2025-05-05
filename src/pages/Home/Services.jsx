@@ -8,6 +8,7 @@ import {
   VStack,
   useColorModeValue,
 } from "@chakra-ui/react";
+import { useNavigate } from "react-router-dom";
 
 const services = [
   {
@@ -19,6 +20,7 @@ const services = [
       "Tarifas competitivas",
       "Servicio Confiable",
     ],
+    routed: "/cotizacion-fletes",
   },
   {
     title: "Traslado de Mercadería",
@@ -32,6 +34,7 @@ const services = [
       "Emisión de facturas",
     ],
     highlighted: true,
+    routed: "/cotizacion-traslado",
   },
   {
     title: "Mudanzas",
@@ -42,10 +45,13 @@ const services = [
       "Transportes adecuados",
       "Servicio personalizado",
     ],
+    routed: "/cotizacion-mudanzas",
   },
 ];
 
 const Services = () => {
+
+  const navigate = useNavigate();
   return (
     <Box bgGradient="linear(to-b, blue.50, white)" py={20} px={6} id="servicios">
       <Heading
@@ -121,6 +127,7 @@ const Services = () => {
               w="full"
               colorScheme="yellow"
               bg="yellow.400"
+              onClick={() => navigate(service.routed)}
               color={service.highlighted ? "gray.900" : "black"}
               _hover={{ bg: "yellow.300" }}
               rounded="full"

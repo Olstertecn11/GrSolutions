@@ -26,7 +26,6 @@ import colors from '../../config/colors';
 import routes from '@/router/routes';
 import { useNavigate } from 'react-router-dom';
 
-const menuItems = ['INICIO', 'SERVICIOS', 'NOSOTROS', 'CONTACTO'];
 
 const renderMenuItem = (item, index) => {
 
@@ -56,7 +55,7 @@ export default function Desktop() {
     <Box bg={colors.navbar} px={6} py={4} color="white">
       <Flex align="center">
         <HStack spacing={4}>
-          {routes.map((item, index) => (
+          {routes.filter((route) => !route.isChild).map((item, index) => (
             <Flex key={index} align="center">
               {renderMenuItem(item, index)}
               {index < routes.length - 1 && (

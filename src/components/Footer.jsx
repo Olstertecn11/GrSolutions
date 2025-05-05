@@ -12,35 +12,53 @@ import {
 } from '@chakra-ui/react';
 import { PhoneIcon, CalendarIcon } from '@chakra-ui/icons';
 import colors from '@/config/colors';
+import { useLocation } from 'react-router-dom';
+import routes from '@/router/routes';
 
 const Footer = () => {
+  const location = useLocation();
+  // if path is http://localhost:5173/Servicios#transporte i need just the "Servicios" part
+  const currentPath = location.pathname.split('/')[1].split('#')[0];
+
+  const solutions = [
+    'Cotización Unificada e Inteligente',
+    'Red de Transportistas Verificados',
+    'Traslados de Mercadería con Seguro',
+    'Soluciones de Mudanza Personalizadas',
+    'Plataforma para Pilotos Externos',
+    'Soporte al Cliente Post-Servicio'
+  ]
+
+
   return (
     <Box bg={colors.footer} color="white" px={[6, 12, 20]} py={10}>
       <Flex direction={['column', 'row']} justify="space-between" gap={10} flexWrap="wrap">
         {/* ABOUT OUR CONSULTING */}
         <Box flex="1" minW="220px">
           <Text fontWeight="bold" fontSize="lg" mb={4}>
-            ABOUT OUR CONSULTING
+            SOBRE NUESTRO SERVICIO
           </Text>
-          <Text color="gray.300" fontSize="sm" mb={4}>
-            That started from this tropic port aboard this tiny ship today still want by theam government they survive on up to thetre east side to a deluxe as soldiers of artics fortune.
+          <Text color="gray.300" fontSize="sm" mb={4} textAlign={'justify'}>
+            MueveGT es una plataforma guatemalteca innovadora que conecta usuarios con una red confiable de transportistas. Nos especializamos en brindar soluciones logísticas eficientes, seguras y personalizadas, abarcando desde fletes y mudanzas hasta traslados de mercadería empresarial.
           </Text>
           <HStack spacing={2} mt={4}>
             <PhoneIcon />
-            <Text color="gray.100" fontSize="sm">Any Queries : (+1) 234 567 900</Text>
+            <Text color="gray.100" fontSize="sm">
+              Dudas o consultas : (+502) 5962 1085
+            </Text>
           </HStack>
         </Box>
 
         {/* RECENT POSTS */}
         <Box flex="1" minW="220px">
           <Text fontWeight="bold" fontSize="lg" mb={4}>
-            RECENT POSTS
+            ÚLTIMAS NOVEDADES
           </Text>
 
           {/* Post 1 */}
           <HStack align="start" spacing={4} mb={4}>
             <Image
-              src="https://via.placeholder.com/60"
+              src='https://cdn.britannica.com/20/7220-050-870D9E30/Guatemala-map-boundaries-cities-locator.jpg'
               alt="Post 1"
               boxSize="60px"
               objectFit="cover"
@@ -48,11 +66,11 @@ const Footer = () => {
             />
             <VStack align="start" spacing={1}>
               <Text fontSize="sm">
-                Till wanted by theam govern they survive as soldiers.
+                Expansión de Cobertura Nacional
               </Text>
               <HStack fontSize="xs" color="gray.300">
                 <CalendarIcon />
-                <Text>Feb 06, 2018</Text>
+                <Text>Sep 06, 2024</Text>
               </HStack>
             </VStack>
           </HStack>
@@ -60,7 +78,7 @@ const Footer = () => {
           {/* Post 2 */}
           <HStack align="start" spacing={4}>
             <Image
-              src="https://via.placeholder.com/60"
+              src="https://images.squarespace-cdn.com/content/v1/5e73c9f4230dd951bffdcee0/e9350177-c899-4590-9b90-bf5a1d0eae53/Bright-Future-Truck-Driving-Jobs.jpg"
               alt="Post 2"
               boxSize="60px"
               objectFit="cover"
@@ -68,41 +86,37 @@ const Footer = () => {
             />
             <VStack align="start" spacing={1}>
               <Text fontSize="sm">
-                World don't move to beat of just one drum.
+                Lanzamiento de Plataforma para Pilotos Externos
               </Text>
               <HStack fontSize="xs" color="gray.300">
                 <CalendarIcon />
-                <Text>Mar 20, 2018</Text>
+                <Text>Mar 20, 2025</Text>
               </HStack>
             </VStack>
           </HStack>
         </Box>
 
-        {/* SOLUTIONS */}
         <Box flex="1" minW="200px">
           <Text fontWeight="bold" fontSize="lg" mb={4}>
-            SOLUTIONS
+            SOLUCIONES
           </Text>
           <VStack align="start" spacing={2} fontSize="sm" color="gray.300">
-            <Text>○ Travel and Aviation</Text>
-            <Text>○ Business Services</Text>
-            <Text>○ Consumer Products</Text>
-            <Text>○ Financial Services</Text>
-            <Text>○ Software Research</Text>
-            <Text>○ Quality Resourcing</Text>
+            {solutions.map((solution, index) => (
+              <Text display={'list-item'} key={index} fontSize="sm" color="gray.300">{solution}</Text>
+            ))}
           </VStack>
         </Box>
 
         {/* NEWSLETTER */}
         <Box flex="1" minW="200px">
           <Text fontWeight="bold" fontSize="lg" mb={4}>
-            NEWSLETTER
+            CONTÁCTANOS
           </Text>
           <VStack spacing={4}>
-            <Input placeholder="Name *" variant="flushed" color="gray.100" />
-            <Input placeholder="Email *" variant="flushed" color="gray.100" />
+            <Input placeholder="Nombre *" variant="flushed" color="gray.100" />
+            <Input placeholder="Correo *" variant="flushed" color="gray.100" />
             <Button bg="gray.100" color="blue.900" w="full" fontWeight="bold">
-              SUBSCRIBE
+              Enviar Solicitud
             </Button>
           </VStack>
         </Box>
@@ -110,16 +124,18 @@ const Footer = () => {
 
       <Divider my={8} borderColor="gray.600" />
 
-      {/* Bottom footer */}
       <Flex justify="space-between" align="center" direction={['column', 'row']} textAlign="center">
         <Text fontSize="sm" color="gray.400">
-          © Copyrights 2018. All Rights Reserved.
+          © Copyrights 2025. Todos los derechos reservados. G&R Logistics
         </Text>
         <HStack spacing={6} mt={[4, 0]}>
-          <Text fontSize="sm">About</Text>
-          <Text fontSize="sm">Solutions</Text>
-          <Text fontSize="sm">FAQ’s</Text>
-          <Text fontSize="sm">Contact</Text>
+          {
+            routes.filter((route) => !route.isChild).map((route, index) => (
+              <Text key={index} fontSize="sm" color="gray.400" fontWeight={currentPath === route.title ? 'bold' : 'normal'}>
+                {route.title}
+              </Text>
+            ))
+          }
         </HStack>
       </Flex>
     </Box>

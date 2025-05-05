@@ -32,7 +32,7 @@ const steps = [
   { title: 'Resumen', description: 'Confirmar envío' },
 ];
 
-const QuouteSteps = () => {
+const MovingQuouteSteps = () => {
   const { activeStep, setActiveStep } = useSteps({ initialStep: 0 });
 
   const [formData, setFormData] = useState({
@@ -54,7 +54,6 @@ const QuouteSteps = () => {
   const prevStep = () => setActiveStep((s) => s - 1);
 
   const handleSubmit = () => {
-    // Aquí puedes enviar los datos al backend o servicio de correo
     alert('Cotización enviada correctamente ✅');
   };
 
@@ -167,4 +166,4 @@ const QuouteSteps = () => {
   );
 };
 
-export default QuouteSteps;
+export default MovingQuouteSteps;
