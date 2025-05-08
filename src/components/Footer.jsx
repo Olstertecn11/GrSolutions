@@ -14,6 +14,7 @@ import { PhoneIcon, CalendarIcon } from '@chakra-ui/icons';
 import colors from '@/config/colors';
 import { useLocation } from 'react-router-dom';
 import routes from '@/router/routes';
+import logo from '@/assets/images/app/logo_simple.png';
 
 const Footer = () => {
   const location = useLocation();
@@ -49,50 +50,15 @@ const Footer = () => {
           </HStack>
         </Box>
 
-        {/* RECENT POSTS */}
         <Box flex="1" minW="220px">
-          <Text fontWeight="bold" fontSize="lg" mb={4}>
-            ÚLTIMAS NOVEDADES
-          </Text>
-
-          {/* Post 1 */}
           <HStack align="start" spacing={4} mb={4}>
             <Image
-              src='https://cdn.britannica.com/20/7220-050-870D9E30/Guatemala-map-boundaries-cities-locator.jpg'
+              src={logo}
               alt="Post 1"
-              boxSize="60px"
-              objectFit="cover"
+              boxSize="240px"
+              objectFit="contain"
               borderRadius="md"
             />
-            <VStack align="start" spacing={1}>
-              <Text fontSize="sm">
-                Expansión de Cobertura Nacional
-              </Text>
-              <HStack fontSize="xs" color="gray.300">
-                <CalendarIcon />
-                <Text>Sep 06, 2024</Text>
-              </HStack>
-            </VStack>
-          </HStack>
-
-          {/* Post 2 */}
-          <HStack align="start" spacing={4}>
-            <Image
-              src="https://images.squarespace-cdn.com/content/v1/5e73c9f4230dd951bffdcee0/e9350177-c899-4590-9b90-bf5a1d0eae53/Bright-Future-Truck-Driving-Jobs.jpg"
-              alt="Post 2"
-              boxSize="60px"
-              objectFit="cover"
-              borderRadius="md"
-            />
-            <VStack align="start" spacing={1}>
-              <Text fontSize="sm">
-                Lanzamiento de Plataforma para Pilotos Externos
-              </Text>
-              <HStack fontSize="xs" color="gray.300">
-                <CalendarIcon />
-                <Text>Mar 20, 2025</Text>
-              </HStack>
-            </VStack>
           </HStack>
         </Box>
 
@@ -107,7 +73,6 @@ const Footer = () => {
           </VStack>
         </Box>
 
-        {/* NEWSLETTER */}
         <Box flex="1" minW="200px">
           <Text fontWeight="bold" fontSize="lg" mb={4}>
             CONTÁCTANOS

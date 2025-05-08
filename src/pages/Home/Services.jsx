@@ -53,13 +53,13 @@ const Services = () => {
 
   const navigate = useNavigate();
   return (
-    <Box bgGradient="linear(to-b, blue.50, white)" py={20} px={6} id="servicios">
+    <Box bg="#061129" py={20} px={6} id="servicios">
       <Heading
         textAlign="center"
         fontSize={{ base: "2xl", md: "4xl" }}
         mb={14}
         fontWeight="extrabold"
-        color="gray.800"
+        color="white"
       >
         Nuestros Servicios
       </Heading>

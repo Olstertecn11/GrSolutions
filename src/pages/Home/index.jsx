@@ -3,8 +3,10 @@ import Hero from '@/pages/Home/Hero';
 import Services from '@/pages/Home/Services';
 import Steps from '@/pages/Home/Steps';
 import SectionDivider from '@/components/SectionDivider';
+import SectionDividerTwo from '@/components/SectionDividerTwo';
 import Contact from '@/pages/Home/Contact';
 import ContactForm from '@/pages/Home/ContactForm';
+
 
 
 const Home = () => {
@@ -12,7 +14,6 @@ const Home = () => {
     <div className='home'>
       <Hero />
       <Quote />
-      <SectionDivider />
       <Services />
       <SectionDivider />
       <Steps />

@@ -25,6 +25,7 @@ import {
 import colors from '../../config/colors';
 import routes from '@/router/routes';
 import { useNavigate } from 'react-router-dom';
+import logo from '@/assets/images/app/logo_simple.png'
 
 
 const renderMenuItem = (item, index) => {
@@ -55,6 +56,7 @@ export default function Desktop() {
     <Box bg={colors.navbar} px={6} py={4} color="white">
       <Flex align="center">
         <HStack spacing={4}>
+          <img src={logo} alt="Logo" style={{ width: '60px', height: '60px', objectFit: 'contain' }} />
           {routes.filter((route) => !route.isChild).map((item, index) => (
             <Flex key={index} align="center">
               {renderMenuItem(item, index)}

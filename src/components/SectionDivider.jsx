@@ -1,8 +1,8 @@
 
 import { Box, Flex, Icon, useColorModeValue } from "@chakra-ui/react";
-import { FaStar } from "react-icons/fa";
+import { FaStar, FaTruck } from "react-icons/fa";
 
-const SectionDivider = ({ icon = FaStar, color = "yellow.400" }) => {
+const SectionDivider = ({ icon = FaTruck, color = "blue.600" }) => {
   return (
     <Flex
       align="center"
