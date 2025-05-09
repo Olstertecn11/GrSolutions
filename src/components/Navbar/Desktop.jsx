@@ -37,9 +37,9 @@ const renderMenuItem = (item, index) => {
       <MenuButton fontWeight={item.title === 'Inicio' ? 'bold' : 'normal'} _hover={{ color: 'blue.300' }} fontSize={'0.9rem'}>
         {item.title} <ChevronDownIcon />
       </MenuButton>
-      <MenuList bg={'blue.800'} border='none' >
+      <MenuList bg={'#1f314c63'} border='none' backdropFilter={'blur(8px)'} >
         {item.subs.map((subItem, subIndex) => (
-          <MenuItem onClick={() => history(subItem.path)} key={subIndex} bg='blue.800' _hover={{ backgroundColor: 'blue.600' }}>{subItem.title}</MenuItem>
+          <MenuItem onClick={() => history(subItem.path)} key={subIndex} bg='transparent' _hover={{ backgroundColor: '#0e141d75' }}>{subItem.title}</MenuItem>
         ))
         }
       </MenuList>
