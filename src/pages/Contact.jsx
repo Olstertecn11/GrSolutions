@@ -3,21 +3,26 @@ import {
   Flex,
   Heading,
   Text,
-  VStack,
+  HStack,
   FormControl,
   FormLabel,
+  Icon,
   Input,
   Select,
   Textarea,
   Button,
   useBreakpointValue,
 } from '@chakra-ui/react';
+import { FaWhatsapp } from "react-icons/fa";
+import { PiHeadphonesFill } from "react-icons/pi";
+import { MdOutlineEmail, MdOutlinePhone } from "react-icons/md";
+
 
 const Contact = () => {
   const isMobile = useBreakpointValue({ base: true, md: false });
 
   return (
-    <Box bg="#0A214A" color="white" py={20} px={6}>
+    <Box bg="linear-gradient(90deg,rgba(16, 33, 57, 1) 0%, rgba(75, 95, 128, 1) 50%, rgba(63, 124, 209, 1) 100%)" color="white" py={20} px={6}>
       <Flex
         direction={{ base: 'column', md: 'row' }}
         maxW="7xl"
@@ -30,24 +35,32 @@ const Contact = () => {
             Contáctanos
           </Heading>
 
-          <Text fontSize="md" mb={4}>
-            Si tienes alguna pregunta o necesitas más información sobre nuestros servicios
-            , no dudes en ponerte en contacto con nosotros. Estamos aquí para ayudarte y
-            responder a todas tus inquietudes.
-
+          <Text fontSize="md" mb={4} textAlign="justify" color="gray.100">
+            ¿Tienes preguntas o necesitas más información sobre nuestros servicios? En <strong>G&R Logistics</strong>, estamos comprometidos con brindarte atención personalizada y soluciones a la medida de tus necesidades logísticas.
           </Text>
 
-          <Text fontSize="md" mb={8}>
-            Puedes llamarnos al <strong>+52 55 1234 5678</strong> o enviarnos un correo a
-            <strong> g&r40example.com</strong>. También puedes completar el formulario a
-            continuación y nos pondremos en contacto contigo lo antes posible.
+          <Text fontSize="md" mb={8} textAlign="justify" color="gray.100">
+            Puedes comunicarte con nosotros al{" "}
+            <Text as="span" fontWeight="bold" color="blue.400">
+              +502 1234 5678
+            </Text>{" "}
+            o escribirnos a{" "}
+            <Text as="span" fontWeight="bold" color="blue.400">
+              contacto@g&r_solutions.com
+            </Text>
+            . Si lo prefieres, también puedes completar el formulario a continuación y uno de nuestros asesores se pondrá en contacto contigo lo antes posible.
           </Text>
 
-          <Text fontWeight='bold' fontStyle={'italic'} fontSize="2xl" fontFamily="cursive">G&R Logistics</Text>
+
+          <HStack justifyContent={'center'} alignContent={'center'} gap={'2rem'} >
+            <Icon as={FaWhatsapp} color='white.100' fontSize={'1.4rem'} />
+            <Icon as={MdOutlineEmail} color='white.100' fontSize={'1.4rem'} />
+            <Icon as={MdOutlinePhone} color='white.100' fontSize={'1.4rem'} />
+          </HStack>
         </Box>
 
         <Box
-          bg="white"
+          bg="#1912125e"
           borderRadius="lg"
           boxShadow="lg"
           p={8}
@@ -57,16 +70,16 @@ const Contact = () => {
         >
           <Flex gap={4} mb={4} direction={{ base: 'column', md: 'row' }}>
             <FormControl isRequired>
-              <Input type="text" placeholder="Tu correo" border={'none'} borderBottom={'1px solid #d7d0d0'} borderRadius='none' />
+              <Input _focus={{ border: 'none', borderColor: 'transparent', boxShadow: 'none', borderBottom: '1px solid #d7d0d0' }} color='white' type="text" placeholder="Tu correo" border={'none'} borderBottom={'1px solid #d7d0d0'} borderRadius='none' />
             </FormControl>
             <FormControl isRequired>
-              <Input type="phone" placeholder="Tu teléfono" border={'none'} borderBottom={'1px solid #d7d0d0'} borderRadius='none' />
+              <Input _focus={{ border: 'none', borderColor: 'transparent', boxShadow: 'none', borderBottom: '1px solid #d7d0d0' }} color='white' type="phone" placeholder="Tu teléfono" border={'none'} borderBottom={'1px solid #d7d0d0'} borderRadius='none' />
             </FormControl>
           </Flex>
 
           <Flex gap={4} mb={4} direction={{ base: 'column', md: 'row' }}>
             <FormControl isRequired>
-              <Input type="email" placeholder="Tu correo" border={'none'} borderBottom={'1px solid #d7d0d0'} borderRadius='none' />
+              <Input _focus={{ border: 'none', borderColor: 'transparent', boxShadow: 'none', borderBottom: '1px solid #d7d0d0' }} color='white' type="email" placeholder="Tu correo" border={'none'} borderBottom={'1px solid #d7d0d0'} borderRadius='none' />
             </FormControl>
             <FormControl>
               <Select placeholder="Servicio que buscas?" border={'none'} borderBottom={'1px solid #d7d0d0'} borderRadius='none' >
@@ -78,16 +91,16 @@ const Contact = () => {
           </Flex>
 
           <FormControl mb={6}>
-            <FormLabel color='gray.500'>Mensaje</FormLabel>
-            <Textarea rows={4} border={'none'} borderBottom={'1px solid #d7d0d0'} bg='gray.50' />
+            <FormLabel color='gray.200'>Mensaje</FormLabel>
+            <Textarea _focus={{ border: 'none', borderColor: 'transparent', boxShadow: 'none', borderBottom: '1px solid #d7d0d0' }} color='white' rows={4} border={'none'} borderBottom={'1px solid #d7d0d0'} bg='#00000024' />
           </FormControl>
 
           <Button
             w="full"
             colorScheme="blue"
-            bg="#04194C"
+            bg="#03070c6b"
             color="white"
-            _hover={{ bg: 'blue.700' }}
+            _hover={{ bg: 'white', color: 'blue.800' }}
             size="lg"
           >
             Enviar

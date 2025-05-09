@@ -28,7 +28,7 @@ const services = [
       "Movimiento de productos empresariales que requieren una mayor especialización",
     features: [
       "Transporte especializado",
-      "Seguro para mercadería (MueveSeguroGT)",
+      "Seguro para mercadería (G&R Solutions)",
       "Cuadrillas",
       "Precios competitivos",
       "Emisión de facturas",
@@ -75,7 +75,7 @@ const Services = () => {
         {services.map((service, idx) => (
           <Box
             key={idx}
-            bg={service.highlighted ? "gray.900" : "white"}
+            bg={service.highlighted ? "#3850cb" : "wheat"}
             color={service.highlighted ? "white" : "gray.800"}
             boxShadow="lg"
             borderRadius="xl"
@@ -92,7 +92,7 @@ const Services = () => {
             <Box
               w="60px"
               h="4px"
-              bg="yellow.400"
+              bg="blue.900"
               borderRadius="full"
               mx="auto"
               mb={4}
@@ -125,11 +125,10 @@ const Services = () => {
 
             <Button
               w="full"
-              colorScheme="yellow"
-              bg="yellow.400"
+              color='white'
+              bg="#061129"
               onClick={() => navigate(service.routed)}
-              color={service.highlighted ? "gray.900" : "black"}
-              _hover={{ bg: "yellow.300" }}
+              _hover={{ bg: "#1f376b" }}
               rounded="full"
             >
               Empezar

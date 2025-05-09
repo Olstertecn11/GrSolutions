@@ -94,7 +94,7 @@ const Quote = () => {
           </Text>
 
           <Flex gap={4} flexWrap="wrap" flexDir={'column'} alignContent={'center'} >
-            <Button w={'50%'} bg='blue.100' color='blue.800'>
+            <Button w={'50%'} bg='#061129e3' color='white' _hover={{ bg: '#061129bd' }}>
               Contactar
             </Button>
           </Flex>

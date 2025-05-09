@@ -1,12 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
-
-.layout{
+.layout {
   display: flex;
   flex-direction: column;
   height: 100vh;
 }
 
-.main-content{
+.main-content {
   flex: 1;
   display: flex;
   justify-content: center;
