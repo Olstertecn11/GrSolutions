@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import {
   Box,
   Heading,
+  Text,
   Button,
   FormControl,
   FormLabel,
@@ -47,6 +48,7 @@ const ProviderQuoteSteps = () => {
 
   return (
     <Box p={6}>
+      <Text mb='4rem' color='blue.300' fontSize={'2rem'} textAlign='center'>Cotización para Proveedor</Text>
       <Stepper index={activeStep} size="lg" colorScheme="blue">
         {steps.map((step, index) => (
           <Step key={index}>
