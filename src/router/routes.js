@@ -3,6 +3,7 @@ import MovingQuouteSteps from "@/pages/MovingQuoteSteps"
 import TransportQuoteSteps from "@/pages/TransportQuoteSteps"
 import Services from "@/pages/Services"
 import Contact from "@/pages/Contact"
+import ProviderQuoteSteps from "@/pages/ProviderQuouteSteps"
 
 
 
@@ -24,7 +25,7 @@ export default [
   },
   { title: 'Cotización Mudanza', path: '/cotizacion-mudanzas', component: MovingQuouteSteps, isChild: true },
   { title: 'Cotización Traslado', path: '/cotizacion-traslado', component: TransportQuoteSteps, isChild: true },
-  { title: 'Cotización Proveedores', path: '/cotizacion-proveedores', component: MovingQuouteSteps, isChild: true },
+  { title: 'Cotización Proveedores', path: '/cotizacion-proveedores', component: ProviderQuoteSteps, isChild: true },
   { title: 'Contacto', path: '/contacto', component: Contact },
 
 ]
