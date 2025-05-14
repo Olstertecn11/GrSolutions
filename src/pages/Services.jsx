@@ -5,6 +5,7 @@ import {
   Flex,
   Heading,
   Text,
+  HStack,
   Stack,
   StackDivider,
   Icon,
@@ -127,12 +128,12 @@ const TransportServices = () => {
 
 const Feature = ({ heading, text }) => {
   return (
-    <Box padding={4} background={'gray.100'} borderRadius={'lg'} boxShadow={'lg'}>
+    <Box padding={4} background={'#0000002b'} borderRadius={'lg'} boxShadow={'lg'} height={'80%'} w='300px'>
       <GridItem>
-        <chakra.h6 fontSize="lg" fontWeight="600">
+        <chakra.h6 fontSize="lg" fontWeight="600" color='white'>
           {heading}
         </chakra.h6>
-        <chakra.p textAlign='justify' mt={2}>{text}</chakra.p>
+        <chakra.p color='white' textAlign='justify' mt={2}>{text}</chakra.p>
       </GridItem>
     </Box>
   )
@@ -140,7 +141,7 @@ const Feature = ({ heading, text }) => {
 
 const ProveedorServices = () => {
   return (
-    <Box as={Container} p={4} m={0} w='100%' maxW={'100%'} background={'#08080d'}>
+    <Box as={Container} p={4} m={0} w='100%' maxW={'100%'} background={'white'}>
       <section id="proveedores" style={{ padding: '4rem' }}>
         <Grid
           templateColumns={{
@@ -151,20 +152,21 @@ const ProveedorServices = () => {
           gap={8}>
           <GridItem colSpan={1}>
             <VStack alignItems="flex-start" spacing="20px">
-              <Heading color='#91acc0'>
+              <Heading color='#2a4365'>
                 Conviértete en proveedor de transporte
               </Heading>
-              <Box>
-                <Image src='https://careers.tcitransportation.com/wp-content/uploads/The-Life-of-a-Truck-Driver-Rewards-and-Challenges-TCI-Transportation-scaled.jpg' borderRadius={'12px'} />
+              <Box w='full' display={'flex'} justifyContent='center'>
+                <Image src='https://careers.tcitransportation.com/wp-content/uploads/The-Life-of-a-Truck-Driver-Rewards-and-Challenges-TCI-Transportation-scaled.jpg' borderRadius={'full'}
+                  height={'30vw'}
+                  objectFit={'cover'}
+                  width={'30vw'}
+                />
               </Box>
-              <Button bg="blue.100" color='blue.800' size="md" className='btn-move-animation'>
-                Registrarme como proveedor
-              </Button>
             </VStack>
           </GridItem>
           <GridItem>
             <Flex flexDir={'column'}>
-              <Text textAlign='justify' mt={'11rem'} color='blue.100' fontSize={'1.2rem'}>
+              <Text textAlign='justify' mt={'11rem'} color='#2a4365' fontSize={'1.2rem'}>
                 Si eres piloto o propietario de un vehículo de transporte, puedes registrarte como proveedor externo y comenzar a recibir oportunidades para participar en nuestras cotizaciones y traslados.
 
                 Al formar parte de nuestra plataforma, tendrás acceso a solicitudes reales de clientes, podrás presentar tus propuestas económicas y coordinar traslados de forma directa, todo dentro de un sistema ágil, transparente y profesional.
@@ -172,38 +174,17 @@ const ProveedorServices = () => {
                 <br />
                 <br />
               </Text>
-              <Divider />
-              <Text mt={4} textAlign='justify' color='blue.100' fontSize='1.2rem'>
+              <Divider bg={'#2a4365'} h='0.2rem' />
+              <Text mt={4} textAlign='justify' color='2a4365' fontSize='1.2rem'>
                 Conviértete en parte del motor que mueve Guatemala. Regístrate hoy mismo y empieza a generar oportunidades.
               </Text>
+              <Button bg="blue.800" color='blue.100' size="md" className='btn-move-animation' mt={6}>
+                Registrarme como proveedor
+              </Button>
             </Flex>
           </GridItem>
         </Grid>
         <Divider mt={12} mb={12} />
-        <Grid
-          templateColumns={{
-            base: 'repeat(1, 1fr)',
-            sm: 'repeat(2, 1fr)',
-            md: 'repeat(4, 1fr)',
-          }}
-          gap={{ base: '8', sm: '12', md: '16' }}>
-          <Feature
-            heading={'Piloto/Proveedor'}
-            text={'Crea tu perfil y empieza a recibir oportunidades como proveedor o piloto de transporte'}
-          />
-          <Feature
-            heading={'Registra vehiculo'}
-            text={'Registra tu vehículo o flotilla para recibir oportunidades'}
-          />
-          <Feature
-            heading={'Tu propio horario'}
-            text={'Recibe oportunidades y trabaja bajo tus tiempos'}
-          />
-          <Feature
-            heading={'Más Ingresos'}
-            text={'Recibe oportunidades de trabajo y aumenta tus ingresos'}
-          />
-        </Grid>
       </section>
     </Box>
   )
@@ -227,7 +208,27 @@ export default function Services() {
 
       <Text color={'blue.500'} fontSize={'4rem'} fontWeight='bold' position={'relative'} textAlign='center'>Servicios</Text>
       <TransportServices />
-      <SectionDivider title={'Proveedores'} />
+      <Box w='full' bg='#4A90E2' h='10rem'>
+        <HStack h='100%' gap={'4rem'} justifyItems='center' justifyContent='center'>
+          <Feature
+            heading={'Piloto/Proveedor'}
+            text={'Crea tu perfil y empieza a recibir oportunidades como proveedor o piloto de transporte'}
+          />
+          <Feature
+            heading={'Registra vehiculo'}
+            text={'Registra tu vehículo o flotilla para recibir oportunidades'}
+          />
+          <Feature
+            heading={'Tu propio horario'}
+            text={'Recibe oportunidades y trabaja bajo tus tiempos'}
+          />
+          <Feature
+            heading={'Más Ingresos'}
+            text={'Recibe oportunidades de trabajo y aumenta tus ingresos'}
+          />
+        </HStack>
+      </Box>
+
       <ProveedorServices />
     </VStack>
   )
