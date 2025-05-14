@@ -70,8 +70,8 @@ export default function Desktop() {
         <Spacer />
 
         <HStack spacing={4}>
-          <IconButton color='white' icon={<FaFacebookF />} variant="ghost" aria-label="Facebook" />
-          <IconButton color='white' icon={<FaLinkedinIn />} variant="ghost" aria-label="LinkedIn" />
+          <IconButton className='navbar-icons' color='white' icon={<FaFacebookF />} variant="ghost" aria-label="Facebook" />
+          <IconButton className='navbar-icons' color='white' icon={<FaLinkedinIn />} variant="ghost" aria-label="LinkedIn" />
 
           {
             /*
@@ -93,7 +93,7 @@ export default function Desktop() {
               */
           }
 
-          <IconButton icon={<Search2Icon />} variant="ghost" aria-label="Search" color='white' borderLeft={'1px solid white'} borderRadius={0} />
+          <IconButton className='navbar-icons' icon={<Search2Icon />} variant="ghost" aria-label="Search" color='white' borderLeft={'1px solid white'} borderRadius={0} />
         </HStack>
       </Flex>
     </Box>
