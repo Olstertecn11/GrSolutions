@@ -8,6 +8,7 @@ import {
   VStack,
   useColorModeValue,
 } from "@chakra-ui/react";
+import { useNavigate } from "react-router-dom";
 
 const services = [
   {
@@ -19,6 +20,7 @@ const services = [
       "Tarifas competitivas",
       "Servicio Confiable",
     ],
+    routed: "/cotizacion-fletes",
   },
   {
     title: "Traslado de Mercadería",
@@ -26,12 +28,13 @@ const services = [
       "Movimiento de productos empresariales que requieren una mayor especialización",
     features: [
       "Transporte especializado",
-      "Seguro para mercadería (MueveSeguroGT)",
+      "Seguro para mercadería (G&R Solutions)",
       "Cuadrillas",
       "Precios competitivos",
       "Emisión de facturas",
     ],
     highlighted: true,
+    routed: "/cotizacion-traslado",
   },
   {
     title: "Mudanzas",
@@ -42,18 +45,21 @@ const services = [
       "Transportes adecuados",
       "Servicio personalizado",
     ],
+    routed: "/cotizacion-mudanzas",
   },
 ];
 
 const Services = () => {
+
+  const navigate = useNavigate();
   return (
-    <Box bgGradient="linear(to-b, blue.50, white)" py={20} px={6} id="servicios">
+    <Box bg="#061129" py={20} px={6} id="servicios">
       <Heading
         textAlign="center"
         fontSize={{ base: "2xl", md: "4xl" }}
         mb={14}
         fontWeight="extrabold"
-        color="gray.800"
+        color="white"
       >
         Nuestros Servicios
       </Heading>
@@ -69,7 +75,7 @@ const Services = () => {
         {services.map((service, idx) => (
           <Box
             key={idx}
-            bg={service.highlighted ? "gray.900" : "white"}
+            bg={service.highlighted ? "#3850cb" : "wheat"}
             color={service.highlighted ? "white" : "gray.800"}
             boxShadow="lg"
             borderRadius="xl"
@@ -86,7 +92,7 @@ const Services = () => {
             <Box
               w="60px"
               h="4px"
-              bg="yellow.400"
+              bg="blue.900"
               borderRadius="full"
               mx="auto"
               mb={4}
@@ -119,10 +125,10 @@ const Services = () => {
 
             <Button
               w="full"
-              colorScheme="yellow"
-              bg="yellow.400"
-              color={service.highlighted ? "gray.900" : "black"}
-              _hover={{ bg: "yellow.300" }}
+              color='white'
+              bg="#061129"
+              onClick={() => navigate(service.routed)}
+              _hover={{ bg: "#1f376b" }}
               rounded="full"
             >
               Empezar

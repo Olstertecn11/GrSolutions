@@ -50,18 +50,21 @@ const VerticalCarousel = ({ items }) => {
 
       <Flex direction='column' className='carousel-content' alignItems='center' justifyContent='center' alignContent={'center'} justifyItems={'center'} h={'100%'} px={10}>
 
-        <Text fontSize='2xl' fontWeight='bold' color='white'>
+        <Text fontSize='4rem' fontWeight='bold' color='white' className='carousel-title' >
           {items[currentIndex].title}
         </Text>
-        <Text fontSize='lg' color='white' textAlign='center'>
+        <Text fontSize='lg' color='white' textAlign='center' className='carousel-description' w='70%' fontWeight={'300'} backdropFilter={'blur(1px)'}>
           {items[currentIndex].description}
         </Text>
         <Button
           mt={4}
-          background={colors.colorbase}
+          background={'white'}
+          borderRadius='none'
+          fontFamily={'Roboto'}
+          fontWeight={'400'}
           _hover={{ background: 'white', color: colors.colorbase }}
           padding='10px 20px'
-          color='white'
+          color='blue.900'
         >
           Conocer más
         </Button>

@@ -102,7 +102,9 @@ const Steps = () => {
 
       <Flex mt={10} justify="center">
         <Button
-          colorScheme="blue"
+          bg='blue.800'
+          color='white'
+          _hover={{ bg: 'blue.600' }}
           px={8}
           className="btn-move-animation"
           onClick={() => window.location.href = '/Cotizacion'} // o tu ruta real

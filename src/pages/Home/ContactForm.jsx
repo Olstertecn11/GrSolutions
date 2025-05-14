@@ -77,9 +77,12 @@ const ContactForm = () => {
 
           <Button
             mt={8}
-            bg={colors.colorbase}
-            color='white'
+            bg='white'
+            border={'1px solid #102139'}
+            borderRadius='none'
+            color='#102139'
             size="lg"
+            _hover={{ bg: '#102139', color: 'white' }}
             px={8}
             fontWeight="bold"
           >

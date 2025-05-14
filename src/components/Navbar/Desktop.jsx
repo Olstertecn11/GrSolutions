@@ -25,8 +25,8 @@ import {
 import colors from '../../config/colors';
 import routes from '@/router/routes';
 import { useNavigate } from 'react-router-dom';
+import logo from '@/assets/images/app/logo_simple.png'
 
-const menuItems = ['INICIO', 'SERVICIOS', 'NOSOTROS', 'CONTACTO'];
 
 const renderMenuItem = (item, index) => {
 
@@ -37,9 +37,9 @@ const renderMenuItem = (item, index) => {
       <MenuButton fontWeight={item.title === 'Inicio' ? 'bold' : 'normal'} _hover={{ color: 'blue.300' }} fontSize={'0.9rem'}>
         {item.title} <ChevronDownIcon />
       </MenuButton>
-      <MenuList bg={'blue.800'} border='none' >
+      <MenuList bg={'#1f314c63'} border='none' backdropFilter={'blur(8px)'} >
         {item.subs.map((subItem, subIndex) => (
-          <MenuItem onClick={() => history(subItem.path)} key={subIndex} bg='blue.800' _hover={{ backgroundColor: 'blue.600' }}>{subItem.title}</MenuItem>
+          <MenuItem onClick={() => history(subItem.path)} key={subIndex} bg='transparent' _hover={{ backgroundColor: '#0e141d75' }}>{subItem.title}</MenuItem>
         ))
         }
       </MenuList>
@@ -56,7 +56,8 @@ export default function Desktop() {
     <Box bg={colors.navbar} px={6} py={4} color="white">
       <Flex align="center">
         <HStack spacing={4}>
-          {routes.map((item, index) => (
+          <img src={logo} alt="Logo" style={{ width: '60px', height: '60px', objectFit: 'contain' }} />
+          {routes.filter((route) => !route.isChild).map((item, index) => (
             <Flex key={index} align="center">
               {renderMenuItem(item, index)}
               {index < routes.length - 1 && (
