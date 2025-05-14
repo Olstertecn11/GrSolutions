@@ -23,9 +23,25 @@ import { IoAnalyticsSharp, IoLogoBitcoin, IoSearchSharp, IoHome } from 'react-ic
 import { TbTruckDelivery } from "react-icons/tb";
 import { PiTruckTrailerLight } from "react-icons/pi";
 import SectionDivider from '../components/SectionDivider'
+import { useLocation } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 
 
 const FeatureTransport = ({ text, icon, iconBg, subtext = '' }) => {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash) {
+      const element = document.querySelector(location.hash);
+      if (element) {
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: "smooth" });
+        }, 100);
+      }
+    }
+  }, [location]);
+
+
   return (
     <Stack direction={'row'} align={'center'}>
       <Flex w={8} h={8} align={'center'} justify={'center'} rounded={'full'} bg={iconBg}>

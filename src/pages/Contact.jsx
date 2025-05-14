@@ -17,7 +17,7 @@ const Contact = () => {
   const isMobile = useBreakpointValue({ base: true, md: false });
 
   return (
-    <Box bg="#0A214A" color="white" py={20} px={6}>
+    <Box bg="#0A214A" color="white" py={20} px={6} w={'100%'}>
       <Flex
         direction={{ base: 'column', md: 'row' }}
         maxW="7xl"

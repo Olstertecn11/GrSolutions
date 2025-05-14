@@ -12,6 +12,7 @@ import {
 } from '@chakra-ui/react';
 import { PhoneIcon, CalendarIcon } from '@chakra-ui/icons';
 import colors from '@/config/colors';
+import routes from '@/router/routes';
 
 const Footer = () => {
   return (
@@ -20,14 +21,14 @@ const Footer = () => {
         {/* ABOUT OUR CONSULTING */}
         <Box flex="1" minW="220px">
           <Text fontWeight="bold" fontSize="lg" mb={4}>
-            ABOUT OUR CONSULTING
+            ACERCA DE NOSOTROS
           </Text>
-          <Text color="gray.300" fontSize="sm" mb={4}>
-            That started from this tropic port aboard this tiny ship today still want by theam government they survive on up to thetre east side to a deluxe as soldiers of artics fortune.
+          <Text color="gray.300" fontSize="sm" mb={4} textAlign={'justify'}>
+            Somos una empresa de transporte dedicada a brindar soluciones logísticas eficientes y confiables. Con años de experiencia en la industria, nos especializamos en el transporte de mercancías y productos a nivel nacional e internacional. Nuestro compromiso es garantizar la seguridad y puntualidad en cada entrega, adaptándonos a las necesidades específicas de nuestros clientes.
           </Text>
           <HStack spacing={2} mt={4}>
             <PhoneIcon />
-            <Text color="gray.100" fontSize="sm">Any Queries : (+1) 234 567 900</Text>
+            <Text color="gray.100" fontSize="sm">Preguntas : (+502) 5962 1085</Text>
           </HStack>
         </Box>
 
@@ -40,7 +41,7 @@ const Footer = () => {
           {/* Post 1 */}
           <HStack align="start" spacing={4} mb={4}>
             <Image
-              src="https://via.placeholder.com/60"
+              src="https://www.freshbooks.com/wp-content/uploads/2022/03/8-steps-to-starting-a-successful-transport-business.jpg"
               alt="Post 1"
               boxSize="60px"
               objectFit="cover"
@@ -60,7 +61,7 @@ const Footer = () => {
           {/* Post 2 */}
           <HStack align="start" spacing={4}>
             <Image
-              src="https://via.placeholder.com/60"
+              src="https://www.freshbooks.com/wp-content/uploads/2022/03/8-steps-to-starting-a-successful-transport-business.jpg"
               alt="Post 2"
               boxSize="60px"
               objectFit="cover"
@@ -93,16 +94,15 @@ const Footer = () => {
           </VStack>
         </Box>
 
-        {/* NEWSLETTER */}
         <Box flex="1" minW="200px">
           <Text fontWeight="bold" fontSize="lg" mb={4}>
-            NEWSLETTER
+            Contactar
           </Text>
           <VStack spacing={4}>
-            <Input placeholder="Name *" variant="flushed" color="gray.100" />
-            <Input placeholder="Email *" variant="flushed" color="gray.100" />
+            <Input type="text" placeholder="Nombre *" variant="flushed" color="gray.100" />
+            <Input type='email' placeholder="Correo *" variant="flushed" color="gray.100" />
             <Button bg="gray.100" color="blue.900" w="full" fontWeight="bold">
-              SUBSCRIBE
+              Enviar Mensaje
             </Button>
           </VStack>
         </Box>
@@ -110,16 +110,24 @@ const Footer = () => {
 
       <Divider my={8} borderColor="gray.600" />
 
-      {/* Bottom footer */}
       <Flex justify="space-between" align="center" direction={['column', 'row']} textAlign="center">
         <Text fontSize="sm" color="gray.400">
-          © Copyrights 2018. All Rights Reserved.
+          © Copyrights 2025. All Rights Reserved.
         </Text>
         <HStack spacing={6} mt={[4, 0]}>
-          <Text fontSize="sm">About</Text>
-          <Text fontSize="sm">Solutions</Text>
-          <Text fontSize="sm">FAQ’s</Text>
-          <Text fontSize="sm">Contact</Text>
+          {
+            routes.map((item, index) => (
+              <Text
+                key={index}
+                _hover={{ color: 'blue.300', cursor: 'pointer', textDecoration: 'underline', textUnderlineOffset: '3px' }}
+                fontSize={'0.9rem'}
+                onClick={() => history(item.path)}
+                fontWeight={item.title === 'Inicio' ? 'bold' : 'normal'}
+              >
+                {item.title}
+              </Text>
+            ))
+          }
         </HStack>
       </Flex>
     </Box>

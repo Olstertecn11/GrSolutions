@@ -1,14 +1,22 @@
-
-
-.layout{
+.layout {
   display: flex;
   flex-direction: column;
   height: 100vh;
 }
 
-.main-content{
+.main-content {
   flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.navbar-icons {
+  color: blue;
+  transition: .40s ease-in-out;
+}
+
+.navbar-icons:hover {
+  color: blue;
+  transition: .40s;
 }
