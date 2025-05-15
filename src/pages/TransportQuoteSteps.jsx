@@ -6,6 +6,7 @@ import {
   Input,
   Select,
   Textarea,
+  Text,
   Checkbox,
   Step,
   StepDescription,
@@ -47,6 +48,7 @@ const TransportQuoteSteps = () => {
 
   return (
     <Box p={8}>
+      <Text mb='4rem' color='blue.300' fontSize={'2rem'} textAlign='center'>Cotización para Traslado</Text>
       <Stepper index={activeStep} size="lg" colorScheme="blue">
         {steps.map((step, index) => (
           <Step key={index}>

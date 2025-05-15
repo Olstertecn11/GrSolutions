@@ -59,6 +59,8 @@ const MovingQuouteSteps = () => {
 
   return (
     <Box maxW="4xl" mx="auto" py={10}>
+
+      <Text mb='4rem' color='blue.300' fontSize={'2rem'} textAlign='center'>Cotización para Mudanza</Text>
       <Stepper index={activeStep} colorScheme="blue" mb={10}>
         {steps.map((step, index) => (
           <Step key={index}>

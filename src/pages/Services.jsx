@@ -152,8 +152,30 @@ const ProveedorServices = () => {
           gap={8}>
           <GridItem colSpan={1}>
             <VStack alignItems="flex-start" spacing="20px">
-              <Heading color='#4a90e2'>
-                Conviértete en proveedor de transporte
+              <Heading
+                as="h2"
+                fontSize="3xl"
+                display="inline"
+                color='#4a90e2'
+                position="relative"
+                zIndex="0"
+              >
+                <Box
+                  as="span"
+                  position="relative"
+                  _after={{
+                    content: `""`,
+                    position: 'absolute',
+                    left: '10%',
+                    bottom: 0,
+                    width: '95%',
+                    height: '0.35em',
+                    bg: '#4a90e269',
+                    zIndex: -1,
+                  }}
+                >
+                  Conviértete en proveedor de transporte
+                </Box>
               </Heading>
               <Box w='full' display={'flex'} justifyContent='center'>
                 <Image src='https://careers.tcitransportation.com/wp-content/uploads/The-Life-of-a-Truck-Driver-Rewards-and-Challenges-TCI-Transportation-scaled.jpg' borderRadius={'full'}
