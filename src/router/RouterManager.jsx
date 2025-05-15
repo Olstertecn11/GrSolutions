@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import routes from './routes';
 import MainLayout from "@/layouts/MainLayout";
+import UpButton from "../components/UpButton";
 
 const RouterManager = () => {
   return (
@@ -24,6 +25,7 @@ const RouterManager = () => {
           })}
         </Routes>
       </BrowserRouter>
+      <UpButton />
     </div>
   )
 };

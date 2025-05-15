@@ -56,3 +56,33 @@
 .pos-relative {
   position: relative;
 }
+
+
+
+
+.upButton {
+  position: fixed;
+  bottom: 8%;
+  right: 1%;
+  color: white;
+  z-index: 100000;
+  display: block;
+  border-radius: 2rem;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  background-color: #2a4365;
+}
+
+.upButton:hover {
+  background-color: #3d6294;
+  transition: .40s ease-in-out;
+}
+
+.svg-up-button {
+  margin-left: 9px;
+}
+
+.hide {
+  display: none;
+}

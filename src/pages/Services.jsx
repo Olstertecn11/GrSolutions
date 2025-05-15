@@ -151,20 +151,17 @@ const ProveedorServices = () => {
           gap={8}>
           <GridItem colSpan={1}>
             <VStack alignItems="flex-start" spacing="20px">
-              <Heading color='#91acc0'>
+              <Heading color='white'>
                 Conviértete en proveedor de transporte
               </Heading>
               <Box>
                 <Image src='https://careers.tcitransportation.com/wp-content/uploads/The-Life-of-a-Truck-Driver-Rewards-and-Challenges-TCI-Transportation-scaled.jpg' borderRadius={'12px'} />
               </Box>
-              <Button bg="blue.100" color='blue.800' size="md" className='btn-move-animation'>
-                Registrarme como proveedor
-              </Button>
             </VStack>
           </GridItem>
           <GridItem>
             <Flex flexDir={'column'}>
-              <Text textAlign='justify' mt={'11rem'} color='blue.100' fontSize={'1.2rem'}>
+              <Text textAlign='justify' mt={'10rem'} color='white' fontSize={'1.2rem'}>
                 Si eres piloto o propietario de un vehículo de transporte, puedes registrarte como proveedor externo y comenzar a recibir oportunidades para participar en nuestras cotizaciones y traslados.
 
                 Al formar parte de nuestra plataforma, tendrás acceso a solicitudes reales de clientes, podrás presentar tus propuestas económicas y coordinar traslados de forma directa, todo dentro de un sistema ágil, transparente y profesional.
@@ -173,9 +170,12 @@ const ProveedorServices = () => {
                 <br />
               </Text>
               <Divider />
-              <Text mt={4} textAlign='justify' color='blue.100' fontSize='1.2rem'>
+              <Text mt={4} textAlign='justify' color='white' fontSize='1.2rem'>
                 Conviértete en parte del motor que mueve Guatemala. Regístrate hoy mismo y empieza a generar oportunidades.
               </Text>
+              <Button bg="white" color='blue.800' size="md" className='tn-move-animation' w='40%' borderRadius={'22px'} mt={'2rem'}>
+                Registrarme como proveedor
+              </Button>
             </Flex>
           </GridItem>
         </Grid>
