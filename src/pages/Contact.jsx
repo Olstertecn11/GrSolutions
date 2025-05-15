@@ -22,7 +22,7 @@ const Contact = () => {
   const isMobile = useBreakpointValue({ base: true, md: false });
 
   return (
-    <Box bg="linear-gradient(90deg,rgba(16, 33, 57, 1) 0%, rgba(75, 95, 128, 1) 50%, rgba(63, 124, 209, 1) 100%)" color="white" py={20} px={6}>
+    <Box bg="linear-gradient(90deg,rgba(16, 33, 57, 1) 0%, rgba(75, 95, 128, 1) 50%, rgba(63, 124, 209, 1) 100%)" color="white" py={20} px={6} w='full'>
       <Flex
         direction={{ base: 'column', md: 'row' }}
         maxW="7xl"
