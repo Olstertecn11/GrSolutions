@@ -106,7 +106,7 @@ const TransportQuoteSteps = () => {
           <VStack spacing={4} align="stretch">
             <FormControl isRequired><FormLabel>¿Tiene seguro actualmente?</FormLabel><Select name="tiene_seguro" onChange={handleChange}><option>Sí</option><option>No</option></Select></FormControl>
             {form.tiene_seguro === "No" && (
-              <FormControl><FormLabel>¿Desea que MueveGT cotice el seguro?</FormLabel><Select name="desea_seguro" onChange={handleChange}><option>Sí</option><option>No</option></Select></FormControl>
+              <FormControl><FormLabel>¿Desea que G&R Logistics cotice el seguro?</FormLabel><Select name="desea_seguro" onChange={handleChange}><option>Sí</option><option>No</option></Select></FormControl>
             )}
             <FormControl><FormLabel>Monto de la factura (Q)</FormLabel><Input name="valor_factura" type="number" onChange={handleChange} /></FormControl>
             <Checkbox name="acepta_terminos" onChange={handleChange}>

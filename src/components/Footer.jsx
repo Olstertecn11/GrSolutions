@@ -40,7 +40,7 @@ const Footer = () => {
             SOBRE NUESTRO SERVICIO
           </Text>
           <Text color="gray.300" fontSize="sm" mb={4} textAlign={'justify'}>
-            MueveGT es una plataforma guatemalteca innovadora que conecta usuarios con una red confiable de transportistas. Nos especializamos en brindar soluciones logísticas eficientes, seguras y personalizadas, abarcando desde fletes y mudanzas hasta traslados de mercadería empresarial.
+            G&R Logistics es una plataforma guatemalteca innovadora que conecta usuarios con una red confiable de transportistas. Nos especializamos en brindar soluciones logísticas eficientes, seguras y personalizadas, abarcando desde fletes y mudanzas hasta traslados de mercadería empresarial.
           </Text>
           <HStack spacing={2} mt={4}>
             <PhoneIcon />
