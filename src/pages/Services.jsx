@@ -126,9 +126,9 @@ const TransportServices = () => {
 
 
 
-const Feature = ({ heading, text }) => {
+const Feature = ({ heading, text, isLast = false }) => {
   return (
-    <Box padding={4} background={'#0000002b'} borderRadius={'lg'} boxShadow={'lg'} height={'80%'} w='300px'>
+    <Box padding={4} height={'80%'} w='300px' borderRight={isLast ? 'none' : '2px solid white'}>
       <GridItem>
         <chakra.h6 fontSize="lg" fontWeight="600" color='white'>
           {heading}
@@ -152,7 +152,7 @@ const ProveedorServices = () => {
           gap={8}>
           <GridItem colSpan={1}>
             <VStack alignItems="flex-start" spacing="20px">
-              <Heading color='#2a4365'>
+              <Heading color='#4a90e2'>
                 Conviértete en proveedor de transporte
               </Heading>
               <Box w='full' display={'flex'} justifyContent='center'>
@@ -166,7 +166,7 @@ const ProveedorServices = () => {
           </GridItem>
           <GridItem>
             <Flex flexDir={'column'}>
-              <Text textAlign='justify' mt={'11rem'} color='#2a4365' fontSize={'1.2rem'}>
+              <Text textAlign='justify' mt={'11rem'} color='#4a90e2' fontSize={'1.2rem'}>
                 Si eres piloto o propietario de un vehículo de transporte, puedes registrarte como proveedor externo y comenzar a recibir oportunidades para participar en nuestras cotizaciones y traslados.
 
                 Al formar parte de nuestra plataforma, tendrás acceso a solicitudes reales de clientes, podrás presentar tus propuestas económicas y coordinar traslados de forma directa, todo dentro de un sistema ágil, transparente y profesional.
@@ -174,17 +174,16 @@ const ProveedorServices = () => {
                 <br />
                 <br />
               </Text>
-              <Divider bg={'#2a4365'} h='0.2rem' />
-              <Text mt={4} textAlign='justify' color='2a4365' fontSize='1.2rem'>
+              <Divider bg={'#006ff2'} h='0.2rem' />
+              <Text mt={4} textAlign='justify' color='#4a90e2' fontSize='1.2rem'>
                 Conviértete en parte del motor que mueve Guatemala. Regístrate hoy mismo y empieza a generar oportunidades.
               </Text>
-              <Button bg="blue.800" color='blue.100' size="md" className='btn-move-animation' mt={6}>
+              <Button w={'40%'} bg="#4a90e2" color='white' size="md" className='btn-move-animation' mt={6} borderRadius={'2rem'}>
                 Registrarme como proveedor
               </Button>
             </Flex>
           </GridItem>
         </Grid>
-        <Divider mt={12} mb={12} />
       </section>
     </Box>
   )
@@ -225,6 +224,7 @@ export default function Services() {
           <Feature
             heading={'Más Ingresos'}
             text={'Recibe oportunidades de trabajo y aumenta tus ingresos'}
+            isLast={true}
           />
         </HStack>
       </Box>
